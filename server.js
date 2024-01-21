@@ -48,6 +48,7 @@ app.ws('/', (ws, req) => {
     userAgent,
   };
 
+  
   clients.push({ ws, userData });
 
   const connectionMessage = `Новый клиент подключен. ID: ${userData.id}, Имя: ${userData.name}, IP: ${ip}, User-Agent: ${userAgent}, Время: ${getCurrentDateTime()}`;
