@@ -59,6 +59,12 @@ app.ws('/', (ws, req) => {
 
   ws.on('message', (message) => {
     console.log(`Получено сообщение от клиента ID ${userData.id}: ${message}`);
+    if (message === 'ping') {
+      // Respond to 'ping' with 'pong'
+      ws.send('pong');
+      console.log(`Отправлен ответ 'pong' клиенту ID ${userData.id}`);
+      return;
+    }    
 
     if (isMessageFromAdmin(message)) {
       const adminCommand = parseAdminCommand(message);
